@@ -37,26 +37,10 @@ public class EventsDataViewController: UIViewController {
     
     func createTableViewWithTitle() {
         
-        let titleLabel = UILabel()
-        titleLabel.font = .systemFont(ofSize: 20, weight: .bold)
-        titleLabel.text = "Tracked Events"
-        view.addSubview(titleLabel)
         tableView = UITableView(frame: view.bounds, style: .plain)
         tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.addSubview(tableView)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Event")
-        
-        NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 20),
-            titleLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20),
-            titleLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 20),
-            tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20),
-            tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 20),
-            tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 20),
-            tableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20)
-            
-        ])
-        
         
     }
     
@@ -82,5 +66,9 @@ public class EventsDataViewController: UIViewController {
         snapshot.appendSections([.events])
         snapshot.appendItems(events)
         dataSource?.apply(snapshot, animatingDifferences: false)
+    }
+    
+    func resetEvents() {
+        try? container?.mainContext.delete(model: Event.self)
     }
 }
