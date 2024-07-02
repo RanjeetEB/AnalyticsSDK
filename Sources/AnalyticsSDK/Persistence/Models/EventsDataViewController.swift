@@ -13,21 +13,21 @@ enum Section {
 }
 
 @available(iOS 17, *)
-class EventsDataViewController: UIViewController {
+public class EventsDataViewController: UIViewController {
     
     var container: ModelContainer?
     
     var tableView: UITableView!
     var dataSource: UITableViewDiffableDataSource<Section, Event>?
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         loadEvents()
     }
     
-    override func loadView() {
+    public override func loadView() {
         super.loadView()
 
         createTableView()
