@@ -6,6 +6,10 @@ import SwiftData
 
 public class EventTracking {
     
+    public init() {
+        
+    }
+    
     @MainActor @available(iOS 17, *)
     public func startTracking() {
         UserDefaults.standard.setValue(true, forKey: "isTracking")
