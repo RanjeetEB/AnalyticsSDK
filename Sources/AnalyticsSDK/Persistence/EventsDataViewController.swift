@@ -68,7 +68,4 @@ public class EventsDataViewController: UIViewController {
         dataSource?.apply(snapshot, animatingDifferences: false)
     }
     
-    func resetEvents() {
-        try? container?.mainContext.delete(model: Event.self)
-    }
 }
