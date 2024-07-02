@@ -24,6 +24,7 @@ public class EventsDataViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        container = try? ModelContainer(for: Event.self)
         loadEvents()
     }
     
